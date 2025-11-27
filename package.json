@@ -12,7 +12,11 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",
     "antd": "^6.0.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "framer-motion": "^12.23.24",
     "lucide-react": "^0.555.0",
+    "nodemailer": "^7.0.11",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.9.6",
@@ -28,5 +32,18 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
     "vite": "^7.2.4"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asomiddinwww/6-1-lesson.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asomiddinwww/6-1-lesson/issues"
+  },
+  "homepage": "https://github.com/asomiddinwww/6-1-lesson#readme"
 }

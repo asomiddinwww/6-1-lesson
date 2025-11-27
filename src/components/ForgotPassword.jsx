@@ -6,13 +6,27 @@ import face from "./img/face.png";
 import apple from "./img/apple.png";
 import { Button, Checkbox, Divider, Form, Input, Card } from "antd";
 import { LeftOutlined, MailOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ForgotPassword = () => {
   const gridStyle = {
     width: "33.3%",
     height: "60px",
     textAlign: "center",
+  };
+
+  const navigate = useNavigate();
+
+  const onFinish = (values) => {
+    const userData = {
+      email: values.emailFull,
+    };
+    localStorage.setItem("user", JSON.stringify(userData));
+    navigate("/forgodverify");
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
 
   return (
@@ -24,12 +38,23 @@ const ForgotPassword = () => {
       <div className="w-full flex flex-col md:flex-row items-center justify-center gap-10 max-[757px]:flex-col-reverse">
         <div className="w-full md:w-[45%] lg:w-[30%]">
           <div className="pb-10">
-            <Link className="text-[14px]" to={"/login"}><LeftOutlined/> Back to login</Link>
+            <Link className="text-[14px]" to={"/login"}>
+              <LeftOutlined /> Back to login
+            </Link>
           </div>
-          <h1 className="text-3xl md:text-4xl !font-bold">Forgot your password?</h1>
-          <p className="!pb-5 text-[#313131] text-[15px]">Don’t worry, happens to all of us. Enter your email below to recover your password</p>
+          <h1 className="text-3xl md:text-4xl !font-bold">
+            Forgot your password?
+          </h1>
+          <p className="!pb-5 text-[#313131] text-[15px]">
+            Don’t worry, happens to all of us. Enter your email below to recover
+            your password
+          </p>
 
-          <Form>
+          <Form
+            layout="vertical"
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+          >
             <Form.Item
               name="Email"
               rules={[{ required: true, message: "Please input your Email!" }]}
@@ -43,7 +68,6 @@ const ForgotPassword = () => {
               />
             </Form.Item>
 
-
             <Form.Item label={null} className="!pt-4">
               <Button
                 className="!w-full"
@@ -53,7 +77,6 @@ const ForgotPassword = () => {
               >
                 Submit
               </Button>
-
             </Form.Item>
 
             <Divider

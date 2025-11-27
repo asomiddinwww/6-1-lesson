@@ -5,6 +5,7 @@ import SignUp from './components/SignUp'
 import ForgodVerify from './components/ForgodVerify'
 import ForgotPassword from './components/ForgotPassword'
 import SetNewpas from './components/SetNewpas'
+import Owner from './components/owner'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Route path='/forgotpassword' element={<ForgotPassword/>}/>
       <Route path='/forgodverify' element={<ForgodVerify/>}/>
       <Route path='/setnewpassword' element={<SetNewpas/>}/>
+      <Route path='/page' element={<Owner/>}/>
     </Routes>
   )
 }
